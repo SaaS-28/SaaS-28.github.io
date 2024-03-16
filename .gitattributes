@@ -1,0 +1,2 @@
+# .gitattributes - for the correct handling of the file
+Gemfile.lock text eol=lf
