@@ -1,0 +1,133 @@
+/* Header */
+#header {
+  background-color: #333;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px; /* Aumenta leggermente la dimensione del testo */
+  display: flex;
+  align-items: center;
+  transition: color 0.5s ease;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.logo:hover {
+  color: #ffcc00;
+}
+
+.logo i {
+  margin-right: 10px; /* Aggiunge un margine a destra all'icona per separarla dal testo */
+}
+
+/* Navbar */
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  list-style-type: none;
+  margin: 0; 
+}
+
+.navbar ul li {
+  margin-left: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  position: relative;
+}
+
+.navbar ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #ffcc00;
+  transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover::after {
+  width: 100%;
+}
+
+.navbar ul li a.active {
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+/* Navbar Link Styles */
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ffcc00;
+}
+
+.navbar a.active {
+  font-weight: bold;
+}
+
+/* Nasconde il menu-toggle (icona) per default */
+.menu-toggle {
+  display: flex;
+  visibility: hidden;
+}
+
+/* Nasconde la navbar per default su dispositivi mobili e mostra l'icona del menu */
+@media screen and (max-width: 768px) {
+  #header {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .navbar ul {
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+    display: none;
+  }
+
+  .navbar ul.active {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  .menu-toggle {
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+    visibility: visible;
+  }
+
+  /* Assicurati che il logo sia separato dal menu e occupi la propria 'riga' */
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+}
+
