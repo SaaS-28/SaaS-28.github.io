@@ -1,6 +1,11 @@
+/* Page colors */
+$logo-nav-foo: #fff;
+$background-page: #333;
+$over: #ffcc00;
+
 /* Header */
 #header {
-  background-color: #333;
+  background-color: $background-page;
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -8,23 +13,23 @@
 
 /* Logo */
 .logo {
-  color: #fff;
+  color: $logo-nav-foo;
   text-decoration: none;
-  font-size: 20px; /* Aumenta leggermente la dimensione del testo */
+  font-size: 20px;
   display: flex;
   align-items: center;
   transition: color 0.5s ease;
-  border: 2px solid white;
+  border: 2px solid $logo-nav-foo;
   border-radius: 10px;
   padding: 10px;
 }
 
 .logo:hover {
-  color: #ffcc00;
+  color: $over;
 }
 
 .logo i {
-  margin-right: 10px; /* Aggiunge un margine a destra all'icona per separarla dal testo */
+  margin-right: 10px;
 }
 
 /* Navbar */
@@ -44,7 +49,7 @@
 }
 
 .navbar ul li a {
-  color: #fff;
+  color: $logo-nav-foo;
   text-decoration: none;
   font-size: 20px;
   position: relative;
@@ -57,7 +62,7 @@
   bottom: -2px;
   width: 0;
   height: 2px;
-  background-color: #ffcc00;
+  background-color: $over;
   transition: width 0.3s ease;
 }
 
@@ -67,32 +72,117 @@
 
 .navbar ul li a.active {
   font-weight: bold;
-  color: #ffcc00;
+  color: $over;
 }
 
 /* Navbar Link Styles */
 .navbar a {
-  color: #fff;
+  color: $logo-nav-foo;
   text-decoration: none;
   padding: 10px;
   transition: color 0.3s ease;
 }
 
 .navbar a:hover {
-  color: #ffcc00;
+  color: $over;
 }
 
 .navbar a.active {
   font-weight: bold;
 }
 
-/* Nasconde il menu-toggle (icona) per default */
+/* Menu toggle */
 .menu-toggle {
   display: flex;
   visibility: hidden;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Nasconde la navbar per default su dispositivi mobili e mostra l'icona del menu */
+/* Home */
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Content*/
+.content {
+  text-align: center;
+}
+
+.content h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: xx-large;
+  font-weight: bold;
+  color: $background-page;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  max-width: 600px;
+  font-size: large;
+}
+
+.fa-bars {
+  transform: rotate(0deg);
+}
+
+.fa-times {
+  transform: rotate(90deg);
+}
+
+/* GitHub icon */
+.github .fab.fa-github{
+  font-size: 50px;
+  color: $background-page;
+}
+
+.github:hover .fab.fa-github {
+  color: $over;
+}
+
+/* About me page */
+.content-about > h1, h2{
+  text-align: center;
+}
+
+.content-about > p {
+  text-align: justify;
+  font-size: large;
+}
+
+.prom-lang {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: row;
+}
+
+.prom-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prom-icon i {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+/* Footer */
+.footer {
+  background-color: $background-page;
+  color: $logo-nav-foo;
+  text-align: center;
+}
+
+/* Responsive */
 @media screen and (max-width: 768px) {
   #header {
     flex-direction: column;
@@ -122,7 +212,6 @@
     visibility: visible;
   }
 
-  /* Assicurati che il logo sia separato dal menu e occupi la propria 'riga' */
   .logo {
     display: flex;
     justify-content: center;
@@ -131,3 +220,8 @@
   }
 }
 
+@media screen and (max-width: 342px) {
+  .logo {
+    font-size: 15px;
+  }
+}

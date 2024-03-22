@@ -4,5 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   menuIcon.addEventListener('click', function() {
     navbarMenu.classList.toggle('active');
+    menuIcon.classList.toggle('fa-bars');
+    menuIcon.classList.toggle('fa-times');
   });
 });
