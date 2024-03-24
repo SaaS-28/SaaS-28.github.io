@@ -4,4 +4,12 @@ title: Projects
 permalink: /projects/
 ---
 
-<p style="text-align: center">Still working on this page :(</p>
+<div class="projects-container">
+    {% for project in site.projects %}
+      <a href="{{ project.url }}">
+        {{ project.title }}
+      </a>
+    {% endfor %}
+</div>
+
+<!-- <p style="text-align: center">Still working on this page :(</p> -->

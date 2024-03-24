@@ -2,6 +2,10 @@
 $logo-nav-foo: #fff;
 $background-page: #333;
 $over: #ffcc00;
+$box-shadow: rgba(0, 0, 0, 0.1);
+$download-link-color: rgba(255, 255, 255, 0.5);
+$p-color: #666;
+$description: #0088cc;
 
 /* Header */
 #header {
@@ -175,6 +179,136 @@ $over: #ffcc00;
   margin-bottom: 5px;
 }
 
+/* Projects container */
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.projects-container a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 75px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: $background-page;
+  background-color: $logo-nav-foo;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px $box-shadow;
+  transition: transform 0.3s ease;
+}
+
+.projects-container a:hover {
+  transform: scale(1.05);
+  color: $over;
+}
+
+/* Projects pages */
+.single-project-container > *:not(.description) {
+  text-align: center;
+}
+
+.description {
+  text-align: justify;
+  text-align-last: center;
+}
+
+.single-project-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: $logo-nav-foo;
+  box-shadow: 0 4px 8px $box-shadow;
+}
+
+.single-project-container h1 {
+  font-size: 24px;
+  color: $background-page;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.single-project-container h2 {
+  font-size: 20px;
+  color: $background-page;
+  margin-bottom: 10px;
+}
+
+.single-project-container p {
+  font-size: 16px;
+  color: $p-color;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.single-project-container h3 {
+  font-size: 18px;
+  color: $background-page;
+  margin-bottom: 10px;
+}
+
+.single-project-container .description strong {
+  font-weight: bold;
+  color: $description;
+}
+
+.single-project-container .description a {
+  color: $description;
+  text-decoration: none;
+}
+
+.single-project-container .description a:hover {
+  text-decoration: underline;
+}
+
+.download-link {
+  display: inline-block;
+  padding: 20px;
+  background-color: lightgray;
+  background-size: cover;
+  color: $logo-nav-foo;
+  text-decoration: none;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.download-link:hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: $download-link-color;
+  border-radius: 50%;
+  transition: width 0.4s ease, height 0.4s ease, top 0.4s ease, left 0.4s ease;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}
+
+.download-link:hover {
+  color: $over;
+  transform: scale(0.9);
+}
+
+.download-link:hover::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 2;
+}
+
 /* Footer */
 .footer {
   background-color: $background-page;
@@ -229,5 +363,11 @@ $over: #ffcc00;
 @media screen and (max-width: 342px) {
   .logo {
     font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 276px) {
+  .logo {
+    font-size: 12px;
   }
 }
